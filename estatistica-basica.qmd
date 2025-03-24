@@ -1,0 +1,95 @@
+---
+title: "Estatística Básica"
+author: "Luiz Henrique da Silva Batista"
+format: revealjs
+editor: visual
+---
+
+## Estatística Descritiva: Por quê?
+
+-   Suponha que você queira oferecer uma resposta à seguinte pergunta: “qual o IDH dos municípios brasileiros?”
+
+-   Difícil, não? No Brasil, existem 5.565 municípios
+
+![](images/municipios.png){fig-align="right" width="350"}
+
+## Estatística Descritiva: Por quê?
+
+Podemos analisar o IDH de cada um dos municípios, mas isso
+
+1.  Daria muito trabalho
+
+2.  Não levaria nossa análise a lugar nenhum
+
+    a\) Exemplo: em 2010, o IDH de Ouro Preto (MG) era de 0,741. E daí? Isso é muito ou pouco?
+
+Nesse caso, realizar uma **descrição estatística** do IDH de todos os municípios é o melhor caminho para começar a responder pergunta inicial
+
+## Estatística Descritiva: O que é?
+
+Conjunto de “ferramentas” que descrevem dados:
+
+-   Média
+
+-   Mediana
+
+-   Moda
+
+-   Variância
+
+-   Desvio Padrão
+
+-   Medidas de posição (quartis, quintis, decis, percentis etc.)
+
+## Média
+
+Em linguagem **matemática:**
+
+$$
+\frac{\sum_{i=1}^n x_i}{n} = \frac{x_1 + x_2 + x_3 + ... x_n}{n}
+$$ Em **português**: a média consiste em somar todos os valores que temos e dividí-los pela quantidade total de valores.
+
+## O que significa $\sum_{i=1}^n x_i$ ?
+
+Em português, a equação da média está dizendo: "some ($\sum$) todos os valores ($x$) começando no primeiro ($i=1$) e terminando no último ($n$).
+
+$$
+\sum_{i=1}^n x_i = x_1 + x_2 + x_3 + ... x_n
+$$
+
+-   $\sum_{i=1}^3 x_i = x_1 + x_2 + x_3$
+-   $\sum_{i=4}^8 x_i = x_4 + x_5 + x_6 + x_7 + x_8$
+-   $\sum_{i=2}^{n-1} x_i = x_2 + x_3 + x_4 + ... + x_{n-1}$
+
+## O que significa o $n$?
+
+O $n$ geralmente denota o tamanho do nosso conjutno de dados. Então se tivéssemos o seguinte conjunto de dados:
+
+$$
+Notas: {6, 5, 3, 8 ,7, 9}
+$$
+
+O tamanho dele é $n = 6$
+
+## Exemplo
+
+Média do IDH dos municípios brasileiros em 2010: 0,6592.
+
+-   Ouro Preto (MG): 0,741 (\~0,08 a mais do que a média nacional)
+
+-   Belo Horizonte (MG): 0,81 (\~0,15 a mais do que a média nacional)
+
+-   São Paulo (SP): 0,799 (\~0,14 a mais do que a média nacional)
+
+-   Barra (BA): 0,557 (\~0,10 a menos do que a média nacional)
+
+## Mediana
+
+A mediana é, grosso modo, o valor que está exatamente no meio do nosso conjunto de dados (após ordenarmos os valores):
+
+$$
+Notas: {6, 5, 3, 8 ,7, 9}
+$$
+$$
+Notas\ ordenadas: {3, 5, 6, 7 ,8, 9}
+$$
