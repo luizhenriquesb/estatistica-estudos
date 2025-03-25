@@ -89,7 +89,6 @@ A mediana é, grosso modo, o valor que está exatamente no meio do nosso conjunt
 
 $$
 Notas: {6, 5, 3, 8 ,7, 9}
-$$
-$$
+$$ $$
 Notas\ ordenadas: {3, 5, 6, 7 ,8, 9}
 $$
