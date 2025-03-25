@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-bbe7401fe57d4b791b917637bb662036.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-630e5d0601d68ce24534d8cdc8ca2ab8.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -147,6 +147,7 @@ Luiz Henrique da Silva Batista
 <li><p>Moda</p></li>
 <li><p>Variância</p></li>
 <li><p>Desvio Padrão</p></li>
+<li><p>Coeficiente de Variação</p></li>
 <li><p>Medidas de posição (quartis, quintis, decis, percentis etc.)</p></li>
 </ul>
 </section>
@@ -175,7 +176,7 @@ Luiz Henrique da Silva Batista
 </section>
 <section id="o-que-significa-sum_i1n-x_i" class="slide level2">
 <h2>O que significa <span class="math inline">\(\sum_{i=1}^n x_i\)</span> ?</h2>
-<p>Em português, a equação da média está dizendo: “some (<span class="math inline">\(\sum\)</span>) todos os valores (<span class="math inline">\(x\)</span>) começando no primeiro (<span class="math inline">\(i=1\)</span>) e terminando no último (<span class="math inline">\(n\)</span>).</p>
+<p>Basicamente: “some (<span class="math inline">\(\sum\)</span>) todos os valores (<span class="math inline">\(x\)</span>) começando no primeiro (<span class="math inline">\(i=1\)</span>) e terminando no último (<span class="math inline">\(n\)</span>)”.</p>
 <p><span class="math display">\[
 \sum_{i=1}^n x_i = x_1 + x_2 + x_3 + ... x_n
 \]</span></p>
@@ -188,28 +189,47 @@ Luiz Henrique da Silva Batista
 <section id="o-que-significa-o-n" class="slide level2">
 <h2>O que significa o <span class="math inline">\(n\)</span>?</h2>
 <p>O <span class="math inline">\(n\)</span> geralmente denota o tamanho do nosso conjutno de dados. Então se tivéssemos o seguinte conjunto de dados:</p>
-<p><span class="math display">\[
-Notas: {6, 5, 3, 8 ,7}
-\]</span></p>
+<ul>
+<li><span class="math inline">\(Notas: {6, 5, 3, 8 ,7}\)</span></li>
+</ul>
 <p>O tamanho dele é <span class="math inline">\(n = 5\)</span></p>
+<p>Outro exemplo:</p>
+<ul>
+<li><span class="math inline">\(Quantidade\ de\ faltas: {1, 0, 0, 0 , 2, 1, 0, 0, 5}\)</span></li>
+</ul>
+<p>Tamanho <span class="math inline">\(n = 9\)</span></p>
+</section>
+<section id="o-que-significa-o-i" class="slide level2">
+<h2>O que significa o <span class="math inline">\(i\)</span>?</h2>
+<p>O símbolo <span class="math inline">\(i\)</span> significa apenas o índice de nossa variável.</p>
+<ul>
+<li>Variável: um conjunto de valores que variam (ex.: 1, 8, 4, 1, 7, 2)</li>
+<li>Constante: um conjunto de valores que <strong>não</strong> variam (ex.: 2, 2, 2, 2, 2)</li>
+</ul>
+<p>Como assim índice? Quando temos uma variável qualquer de tamanho <span class="math inline">\(n\)</span>, usamos o <span class="math inline">\(x_i\)</span> para representar qualquer um dos valores de forma genérica.</p>
+<p><span class="math inline">\(x_i = x_1, x_2, x_3, ..., x_n\)</span></p>
+<p>Geralmente, constantes não são indexadas e, portanto, não são representadas com <span class="math inline">\(i\)</span></p>
 </section>
 <section id="mediana" class="slide level2">
 <h2>Mediana</h2>
-<p>A mediana é, grosso modo, o valor que está exatamente no meio do nosso conjunto de dados (após ordenarmos os valores):</p>
-<p><span class="math display">\[
-Notas: {6, 5, 3, 8 ,7}
-\]</span> <span class="math display">\[
-Notas\ ordenadas: {3, 5, 6, 7 ,8}
-\]</span></p>
+<p>A mediana é o valor que está exatamente no meio do nosso conjunto de dados (após ordenarmos os valores):</p>
+<ul>
+<li><p><span class="math inline">\(Notas: {6, 5, 3, 8 ,7}\)</span></p></li>
+<li><p><span class="math inline">\(Notas\ ordenadas: {3, 5, 6, 7 ,8}\)</span></p></li>
+</ul>
 <p>O nosso conjunto de dados (notas) tem 5 valores, portanto o valor que está no meio é aquele que está na terceira posição (no caso, o valor 6).</p>
 </section>
 <section id="moda" class="slide level2">
 <h2>Moda</h2>
-<p>A moda é o valor mais frequente.</p>
-<p><span class="math display">\[
-Notas: {6, 5, 3, 8 ,7, 5, 7, 5, 4, 5, 8, 5, 10, 5, 10, 5, 3, 5, 8}
-\]</span></p>
+<p>A moda é simplesmente o valor mais frequente.</p>
+<ul>
+<li><span class="math inline">\(Notas: {6, 5, 3, 8 ,7, 5, 7, 5, 4, 5, 8, 5, 10, 5, 10, 5, 3, 5, 8}\)</span></li>
+</ul>
 <p>Nesse caso, o valor mais frequente é o 5 (que aparece 8 vezes)</p>
+<ul>
+<li><span class="math inline">\(Quantidade\ de\ faltas: {1, 0, 0, 0 , 2, 1, 0, 0, 5}\)</span></li>
+</ul>
+<p>Nesse outro caso, 0 (zero) é o valor mais frequente.</p>
 
 </section>
     </div>

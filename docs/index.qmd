@@ -1,7 +1,9 @@
 ---
 title: "Estatística Básica"
 author: "Luiz Henrique da Silva Batista"
-format: revealjs
+format:
+  revealjs:
+    fontsize: 28px
 editor: visual
 ---
 
@@ -18,6 +20,8 @@ Conjunto de “ferramentas” que descrevem dados:
 -   Variância
 
 -   Desvio Padrão
+
+-   Coeficiente de Variação
 
 -   Medidas de posição (quartis, quintis, decis, percentis etc.)
 
@@ -49,7 +53,7 @@ $$
 
 ## O que significa $\sum_{i=1}^n x_i$ ?
 
-Em português, a equação da média está dizendo: "some ($\sum$) todos os valores ($x$) começando no primeiro ($i=1$) e terminando no último ($n$).
+Basicamente: "some ($\sum$) todos os valores ($x$) começando no primeiro ($i=1$) e terminando no último ($n$)".
 
 $$
 \sum_{i=1}^n x_i = x_1 + x_2 + x_3 + ... x_n
@@ -63,30 +67,47 @@ $$
 
 O $n$ geralmente denota o tamanho do nosso conjutno de dados. Então se tivéssemos o seguinte conjunto de dados:
 
-$$
-Notas: {6, 5, 3, 8 ,7}
-$$
+-   $Notas: {6, 5, 3, 8 ,7}$
 
 O tamanho dele é $n = 5$
 
+Outro exemplo:
+
+-   $Quantidade\ de\ faltas: {1, 0, 0, 0 , 2, 1, 0, 0, 5}$
+
+Tamanho $n = 9$
+
+## O que significa o $i$?
+
+O símbolo $i$ significa apenas o índice de nossa variável.
+
+-   Variável: um conjunto de valores que variam (ex.: 1, 8, 4, 1, 7, 2)
+-   Constante: um conjunto de valores que **não** variam (ex.: 2, 2, 2, 2, 2)
+
+Como assim índice? Quando temos uma variável qualquer de tamanho $n$, usamos o $x_i$ para representar qualquer um dos valores de forma genérica.
+
+$x_i = x_1, x_2, x_3, ..., x_n$
+
+Geralmente, constantes não são indexadas e, portanto, não são representadas com $i$
+
 ## Mediana
 
-A mediana é, grosso modo, o valor que está exatamente no meio do nosso conjunto de dados (após ordenarmos os valores):
+A mediana é o valor que está exatamente no meio do nosso conjunto de dados (após ordenarmos os valores):
 
-$$
-Notas: {6, 5, 3, 8 ,7}
-$$ $$
-Notas\ ordenadas: {3, 5, 6, 7 ,8}
-$$
+-   $Notas: {6, 5, 3, 8 ,7}$
+
+-   $Notas\ ordenadas: {3, 5, 6, 7 ,8}$
 
 O nosso conjunto de dados (notas) tem 5 valores, portanto o valor que está no meio é aquele que está na terceira posição (no caso, o valor 6).
 
 ## Moda
 
-A moda é o valor mais frequente.
+A moda é simplesmente o valor mais frequente.
 
-$$
-Notas: {6, 5, 3, 8 ,7, 5, 7, 5, 4, 5, 8, 5, 10, 5, 10, 5, 3, 5, 8}
-$$
+-   $Notas: {6, 5, 3, 8 ,7, 5, 7, 5, 4, 5, 8, 5, 10, 5, 10, 5, 3, 5, 8}$
 
 Nesse caso, o valor mais frequente é o 5 (que aparece 8 vezes)
+
+-   $Quantidade\ de\ faltas: {1, 0, 0, 0 , 2, 1, 0, 0, 5}$
+
+Nesse outro caso, 0 (zero) é o valor mais frequente.
