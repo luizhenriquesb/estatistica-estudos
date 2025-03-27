@@ -1,5 +1,5 @@
 ---
-title: "Resumo de Estatística Descritiva"
+title: "Revisão de Estatística Descritiva"
 author: "Luiz Henrique da Silva Batista"
 format:
   revealjs:
@@ -203,7 +203,7 @@ Já o Coefiente de Variação é dado por:
 
 -   $CV = \frac{s}{\bar{x}} \times 100$
 
-Se tivermos o valor do Coeficiente de Variação e da Média, Conseguimos obter o Desvio Padrão:
+Se tivermos o valor do Coeficiente de Variação e da Média, conseguimos obter o Desvio Padrão:
 
 -   $CV = \frac{s}{\bar{x}} \times 100$<br><br>
 -   $s = \frac{CV \times \bar{x}}{100}$
@@ -221,6 +221,61 @@ Qual o desvio padrão? Se temos a média e o CV, conseguimos obter o desvio padr
 -   $CV = \frac{s}{\bar{x}} \times 100$<br><br>
 -   $s = \frac{CV \times \bar{x}}{100}$<br><br>
 -   $s = \frac{39,99 \times 1330,63}{100} = 532,12$
+
+## Importante!
+
+O Coeficiente de Variação é a medida mais indicada para comparar a dispersão de variáveis diferentes. Vamos comparar a dispersão da receita e da nota (IMDb) da tabela abaixo:
+
+```{r}
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+
+dados <- basesCursoR::pegar_base("imdb")
+
+dados_filtrados <- dados |> 
+  filter(str_detect(direcao, "Wes Anderson")) |> 
+  filter(titulo_original %in% c("Moonrise Kingdom",
+                                "The Royal Tenenbaums",
+                                "The Grand Budapest Hotel")) |> 
+  select(titulo_original, receita_eua, nota_imdb) |> 
+  dplyr::rename(
+    Título = titulo_original, 
+    Receita = receita_eua,
+    `Nota (IMDb)` = nota_imdb
+    )
+
+dados_filtrados |> 
+  kable("html", caption = "Tabela de Filmes de Wes Anderson") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F)
+```
+
+## Importante!
+
+Se compararmos o desvio padrão, a diferença parece absurda. Mas claramente isso seria o esperado, uma vez que os valores de receita são mais altos (podem variar de 0 até o infinito) e os valores de nota são mais baixos (variam entre 0 e 10)
+
+```{r}
+dados_filtrados |> 
+  summarise(
+    `Desvio Padrão da Receita` = sd(Receita),
+    `Desvio Padrão da Nota` = sd(`Nota (IMDb)`)
+    ) |> 
+  kable("html") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F)
+```
+
+Se olharmos agora para o Coeficiente de Variação, 
+
+```{r}
+dados_filtrados |> 
+  summarise(
+    `CV da Receita` = (sd(Receita) / mean(Receita)) * 100,
+    `CV Nota` = (sd(`Nota (IMDb)`) / mean(`Nota (IMDb)`)) * 100
+    ) |> 
+  kable("html") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F)
+```
+
 
 ## Medidas de Posição
 
