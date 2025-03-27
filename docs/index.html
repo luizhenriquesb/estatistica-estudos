@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.39">
 
   <meta name="author" content="Luiz Henrique da Silva Batista">
-  <title>Estatística Básica</title>
+  <title>Resumo de Estatística Descritiva</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-630e5d0601d68ce24534d8cdc8ca2ab8.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-316766abd9a490d3c0cb8225c8439190.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -127,7 +127,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Estatística Básica</h1>
+  <h1 class="title">Resumo de Estatística Descritiva</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -140,7 +140,7 @@ Luiz Henrique da Silva Batista
 </section>
 <section id="estatística-descritiva-o-que-é" class="slide level2">
 <h2>Estatística Descritiva: O que é?</h2>
-<p>Conjunto de “ferramentas” que descrevem dados:</p>
+<p>Conjunto de medidas que descrevem dados:</p>
 <ul>
 <li><p>Média</p></li>
 <li><p>Mediana</p></li>
@@ -153,62 +153,114 @@ Luiz Henrique da Silva Batista
 </section>
 <section id="média" class="slide level2">
 <h2>Média</h2>
+<p>A média consiste em somar todos os valores que temos e dividí-los pela quantidade total de valores.</p>
 <p>Em linguagem <strong>matemática:</strong></p>
 <p><span class="math display">\[
 \frac{\sum_{i=1}^n x_i}{n} = \frac{x_1 + x_2 + x_3 + ... x_n}{n}
 \]</span></p>
-<p>Em <strong>português</strong>: a média consiste em somar todos os valores que temos e dividí-los pela quantidade total de valores.</p>
+<p>Lembrando que</p>
+<ul>
+<li><p><span class="math inline">\(\sum_{i=1}^4 x_i = x_1 + x_2 + x_3 + x_4\)</span> <br><br></p></li>
+<li><p><span class="math inline">\(\sum_{i=5}^7 x_i = x_5 + x_6 + x_7\)</span> <br><br></p></li>
+<li><p><span class="math inline">\(\sum_{i=3}^{n-1} x_i = x_3 + x_4 + x_5 + ... + x_{n-1}\)</span></p></li>
+</ul>
 </section>
-<section id="exemplo" class="slide level2">
-<h2>Exemplo</h2>
+<section id="exemplo-1" class="slide level2">
+<h2>Exemplo 1</h2>
 <p>Suponha o seguinte conjunto de dados:</p>
 <ul>
 <li><span class="math inline">\(Notas: {6, 5, 3, 8 ,7}\)</span></li>
 </ul>
 <p>A média será:</p>
-<p><span class="math display">\[
-\frac{\sum_{i=1}^n notas_i}{n} = \frac{nota_1 + nota_2 + nota_3 + nota_4 + nota_5}{n}
-\]</span> <span class="math display">\[
-\frac{\sum_{i=1}^n notas_i}{n} = \frac{6 + 5 + 3 + 8 + 7}{5}
-\]</span> <span class="math display">\[
-\frac{\sum_{i=1}^n notas_i}{n} = 4,14
-\]</span></p>
-</section>
-<section id="o-que-significa-sum_i1n-x_i" class="slide level2">
-<h2>O que significa <span class="math inline">\(\sum_{i=1}^n x_i\)</span> ?</h2>
-<p>Basicamente: “some (<span class="math inline">\(\sum\)</span>) todos os valores (<span class="math inline">\(x\)</span>) começando no primeiro (<span class="math inline">\(i=1\)</span>) e terminando no último (<span class="math inline">\(n\)</span>)”.</p>
-<p><span class="math display">\[
-\sum_{i=1}^n x_i = x_1 + x_2 + x_3 + ... x_n
-\]</span></p>
 <ul>
-<li><span class="math inline">\(\sum_{i=1}^3 x_i = x_1 + x_2 + x_3\)</span></li>
-<li><span class="math inline">\(\sum_{i=4}^8 x_i = x_4 + x_5 + x_6 + x_7 + x_8\)</span></li>
-<li><span class="math inline">\(\sum_{i=2}^{n-1} x_i = x_2 + x_3 + x_4 + ... + x_{n-1}\)</span></li>
+<li><p><span class="math inline">\(\frac{\sum_{i=1}^n notas_i}{n} = \frac{nota_1 + nota_2 + nota_3 + nota_4 + nota_5}{n}\)</span><br><br></p></li>
+<li><p><span class="math inline">\(\frac{\sum_{i=1}^n notas_i}{n} = \frac{6 + 5 + 3 + 8 + 7}{5}\)</span><br><br></p></li>
+<li><p><span class="math inline">\(\frac{\sum_{i=1}^n notas_i}{n} = 4,14\)</span></p></li>
 </ul>
 </section>
-<section id="o-que-significa-o-n" class="slide level2">
-<h2>O que significa o <span class="math inline">\(n\)</span>?</h2>
-<p>O <span class="math inline">\(n\)</span> geralmente denota o tamanho do nosso conjutno de dados. Então se tivéssemos o seguinte conjunto de dados:</p>
+<section id="exemplo-2" class="slide level2">
+<h2>Exemplo 2</h2>
+<table class="caption-top">
+<caption>Lista 2 - Classe</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Gasto</th>
+<th style="text-align: center;">Frequência Absoluta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">55 - 59</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">60 - 64</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">65 - 69</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">70 - 74</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">75 - 79</td>
+<td style="text-align: center;">2</td>
+</tr>
+</tbody>
+</table>
+<p><br>Em casos como esse, a média será:</p>
 <ul>
-<li><span class="math inline">\(Notas: {6, 5, 3, 8 ,7}\)</span></li>
+<li><p><span class="math inline">\(Média = \frac{\sum_{i=1}^n f_ix_i}{\sum_{i=1}^n f_i}\)</span><br><br></p></li>
+<li><p>Em que <span class="math inline">\(f_i = frequência\)</span> e <span class="math inline">\(x_i = valores\)</span></p></li>
 </ul>
-<p>O tamanho dele é <span class="math inline">\(n = 5\)</span></p>
-<p>Outro exemplo:</p>
-<ul>
-<li><span class="math inline">\(Quantidade\ de\ faltas: {1, 0, 0, 0 , 2, 1, 0, 0, 5}\)</span></li>
-</ul>
-<p>Tamanho <span class="math inline">\(n = 9\)</span></p>
 </section>
-<section id="o-que-significa-o-i" class="slide level2">
-<h2>O que significa o <span class="math inline">\(i\)</span>?</h2>
-<p>O símbolo <span class="math inline">\(i\)</span> significa apenas o índice de nossa variável.</p>
+<section id="exemplo-2-1" class="slide level2">
+<h2>Exemplo 2</h2>
+<table class="caption-top">
+<caption>Lista 2 - Classe</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Gasto</th>
+<th style="text-align: center;">Frequência Absoluta</th>
+<th style="text-align: center;">Média Gasto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">55 - 59</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">57</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">60 - 64</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">62</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">65 - 69</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">67</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">70 - 74</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">72</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">75 - 79</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">77</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
 <ul>
-<li>Variável: um conjunto de valores que variam (ex.: 1, 8, 4, 1, 7, 2)</li>
-<li>Constante: um conjunto de valores que <strong>não</strong> variam (ex.: 2, 2, 2, 2, 2)</li>
+<li><p><span class="math inline">\(Média = \frac{\sum_{i=1}^n f_ix_i}{\sum_{i=1}^n n}\)</span><br><br></p></li>
+<li><p><span class="math inline">\(Média = \frac{(2 \times 57) + (3 \times 62) + (4 \times 67) + (3 \times 72) + (2 \times 77)}{14} = 67\)</span></p></li>
 </ul>
-<p>Como assim índice? Quando temos uma variável qualquer de tamanho <span class="math inline">\(n\)</span>, usamos o <span class="math inline">\(x_i\)</span> para representar qualquer um dos valores de forma genérica.</p>
-<p><span class="math inline">\(x_i = x_1, x_2, x_3, ..., x_n\)</span></p>
-<p>Geralmente, constantes não são indexadas e, portanto, não são representadas com <span class="math inline">\(i\)</span></p>
 </section>
 <section id="mediana" class="slide level2">
 <h2>Mediana</h2>
@@ -230,8 +282,254 @@ Luiz Henrique da Silva Batista
 <li><span class="math inline">\(Quantidade\ de\ faltas: {1, 0, 0, 0 , 2, 1, 0, 0, 5}\)</span></li>
 </ul>
 <p>Nesse outro caso, 0 (zero) é o valor mais frequente.</p>
-
 </section>
+<section id="variância" class="slide level2">
+<h2>Variância</h2>
+<p>A variância é uma medida de dispersão dos dados, ou seja, mensura o quão dispersos são os nossos dados (em relação à média)</p>
+<p>Em linguagem <strong>matemática:</strong></p>
+<p><span class="math display">\[
+Var(x) = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1} = \frac{(x_1 - \bar{x})^2 + (x_2 - \bar{x})^2 +\ ...\ + (x_n - \bar{x})^2}{n-1}
+\]</span></p>
+</section>
+<section id="exemplo-1-1" class="slide level2">
+<h2>Exemplo 1</h2>
+<p>Suponha uma pesquisa que queria verificar no desempenho escolar dos alunos de duas turmas diferentes.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Notas (turma 1)</th>
+<th style="text-align: center;">Notas (turma 2)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">7</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exemplo-1-2" class="slide level2">
+<h2>Exemplo 1</h2>
+<p>Vamos chamar as notas da turma 1 de <span class="math inline">\(x\)</span> e as notas da turma 2 de <span class="math inline">\(y\)</span>. Podemos verificar que:</p>
+<ul>
+<li><p><span class="math inline">\(\bar{x} = \frac{\sum_{i=1}^n x_i}{n} = 7,4\)</span><br><br></p></li>
+<li><p><span class="math inline">\(\bar{y} = \frac{\sum_{i=1}^n y_i}{n} = 7,4\)</span></p></li>
+</ul>
+<p>As médias são iguais, porém as variância são diferentes:</p>
+<ul>
+<li><p><span class="math inline">\(Var(x) = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1} = 0,94\)</span><br><br></p></li>
+<li><p><span class="math inline">\(Var(y) = \frac{\sum_{i=1}^n (y_i - \bar{y})^2}{n-1} = 9,38\)</span></p></li>
+</ul>
+<p>Ou seja, ao que parece a turma 1 possui um desempenho mais consistente do que a turma 2.</p>
+</section>
+<section id="exemplo-2-2" class="slide level2">
+<h2>Exemplo 2</h2>
+<table class="caption-top">
+<caption>Lista 2 - Classe</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Gasto</th>
+<th style="text-align: center;">Frequência Absoluta</th>
+<th style="text-align: center;">Média Gasto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">55 - 59</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">57</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">60 - 64</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">62</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">65 - 69</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">67</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">70 - 74</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">72</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">75 - 79</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">77</td>
+</tr>
+</tbody>
+</table>
+<p><br>Em casos como esse, a variância será:</p>
+<ul>
+<li><p><span class="math inline">\(S^2 = \frac{\sum_{i=1}^n f_i(x_i - \bar{x)^2}}{\sum_{i=1}^n f_i - 1}\)</span><br><br></p></li>
+<li><p>Em que <span class="math inline">\(f_i = frequência\)</span>, <span class="math inline">\(x_i = valores\)</span> e <span class="math inline">\(\bar{x} = 67\)</span> (encontramos no slide 6)</p></li>
+</ul>
+</section>
+<section id="exemplo-2-3" class="slide level2">
+<h2>Exemplo 2</h2>
+<table class="caption-top">
+<caption>Lista 2 - Classe</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Gasto</th>
+<th style="text-align: center;">Frequência Absoluta</th>
+<th style="text-align: center;">Média Gasto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">55 - 59</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">57</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">60 - 64</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">62</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">65 - 69</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">67</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">70 - 74</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">72</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">75 - 79</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">77</td>
+</tr>
+</tbody>
+</table>
+<p><br><br></p>
+<ul>
+<li><span class="math inline">\(S^2 = \frac{\sum_{i=1}^n f_i(x_i - \bar{x})^2}{\sum_{i=1}^n f_i - 1} = \frac{2(57 - 67)^2 + 3(62 - 67)^2 + 4(67 - 67)^2 + 3(72 - 67)^2 + 2(77 - 67)^2}{14-1} = 42,31\)</span></li>
+</ul>
+</section>
+<section id="desvio-padrão-e-coeficiente-de-variação" class="slide level2">
+<h2>Desvio Padrão e Coeficiente de Variação</h2>
+<p>O desvio padrão é simplesmente a raiz quadrada da variância:</p>
+<ul>
+<li><span class="math inline">\(Desvio\ Padrão = s = \sqrt{Var(x)}\)</span></li>
+</ul>
+<p>Já o Coefiente de Variação é dado por:</p>
+<ul>
+<li><span class="math inline">\(CV = \frac{s}{\bar{x}} \times 100\)</span></li>
+</ul>
+<p>Se tivermos o valor do Coeficiente de Variação e da Média, Conseguimos obter o Desvio Padrão:</p>
+<ul>
+<li><span class="math inline">\(CV = \frac{s}{\bar{x}} \times 100\)</span><br><br></li>
+<li><span class="math inline">\(s = \frac{CV \times \bar{x}}{100}\)</span></li>
+</ul>
+</section>
+<section id="exemplo" class="slide level2">
+<h2>Exemplo</h2>
+<p>Exercício 1 (Lista 1 - Estudo)</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Média</th>
+<th>Desvio Padrão</th>
+<th>CV</th>
+<th>Min</th>
+<th>Q1</th>
+<th>Mediana</th>
+<th>Q3</th>
+<th>Máx</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1330,63</td>
+<td></td>
+<td>39,99</td>
+<td></td>
+<td>1122</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Qual o desvio padrão? Se temos a média e o CV, conseguimos obter o desvio padrão:</p>
+<ul>
+<li><span class="math inline">\(CV = \frac{s}{\bar{x}} \times 100\)</span><br><br></li>
+<li><span class="math inline">\(s = \frac{CV \times \bar{x}}{100}\)</span><br><br></li>
+<li><span class="math inline">\(s = \frac{39,99 \times 1330,63}{100} = 532,12\)</span></li>
+</ul>
+</section>
+<section id="medidas-de-posição" class="slide level2">
+<h2>Medidas de Posição</h2>
+<p>As medidas de posição nos ajudam a interpretar a distribuição dos nossos dados.</p>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<section id="distribuição-das-idades" class="slide level2">
+<h2>Distribuição das Idades</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="mediana-1" class="slide level2">
+<h2>Mediana</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="q1-e-q2" class="slide level2">
+<h2>Q1 e Q2</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section id="decil-90" class="slide level2">
+<h2>Decil 90</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
+<section id="percentil-7" class="slide level2">
+<h2>Percentil 7</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section id="percentil-93" class="slide level2">
+<h2>Percentil 93</h2>
+
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -288,7 +586,7 @@ Luiz Henrique da Silva Batista
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -447,6 +745,82 @@ Luiz Henrique da Silva Batista
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

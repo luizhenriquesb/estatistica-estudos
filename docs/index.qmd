@@ -1,15 +1,16 @@
 ---
-title: "Estatística Básica"
+title: "Resumo de Estatística Descritiva"
 author: "Luiz Henrique da Silva Batista"
 format:
   revealjs:
-    fontsize: 28px
+    fontsize: 30px
+    slide-number: "c/t" 
 editor: visual
 ---
 
 ## Estatística Descritiva: O que é?
 
-Conjunto de “ferramentas” que descrevem dados:
+Conjunto de medidas que descrevem dados:
 
 -   Média
 
@@ -27,15 +28,23 @@ Conjunto de “ferramentas” que descrevem dados:
 
 ## Média
 
+A média consiste em somar todos os valores que temos e dividí-los pela quantidade total de valores.
+
 Em linguagem **matemática:**
 
 $$
 \frac{\sum_{i=1}^n x_i}{n} = \frac{x_1 + x_2 + x_3 + ... x_n}{n}
 $$
 
-Em **português**: a média consiste em somar todos os valores que temos e dividí-los pela quantidade total de valores.
+Lembrando que
 
-## Exemplo
+-   $\sum_{i=1}^4 x_i = x_1 + x_2 + x_3 + x_4$ <br><br>
+
+-   $\sum_{i=5}^7 x_i = x_5 + x_6 + x_7$ <br><br>
+
+-   $\sum_{i=3}^{n-1} x_i = x_3 + x_4 + x_5 + ... + x_{n-1}$
+
+## Exemplo 1
 
 Suponha o seguinte conjunto de dados:
 
@@ -43,52 +52,47 @@ Suponha o seguinte conjunto de dados:
 
 A média será:
 
-$$
-\frac{\sum_{i=1}^n notas_i}{n} = \frac{nota_1 + nota_2 + nota_3 + nota_4 + nota_5}{n}
-$$ $$
-\frac{\sum_{i=1}^n notas_i}{n} = \frac{6 + 5 + 3 + 8 + 7}{5}
-$$ $$
-\frac{\sum_{i=1}^n notas_i}{n} = 4,14
-$$
+-   $\frac{\sum_{i=1}^n notas_i}{n} = \frac{nota_1 + nota_2 + nota_3 + nota_4 + nota_5}{n}$<br><br>
 
-## O que significa $\sum_{i=1}^n x_i$ ?
+-   $\frac{\sum_{i=1}^n notas_i}{n} = \frac{6 + 5 + 3 + 8 + 7}{5}$<br><br>
 
-Basicamente: "some ($\sum$) todos os valores ($x$) começando no primeiro ($i=1$) e terminando no último ($n$)".
+-   $\frac{\sum_{i=1}^n notas_i}{n} = 4,14$
 
-$$
-\sum_{i=1}^n x_i = x_1 + x_2 + x_3 + ... x_n
-$$
+## Exemplo 2
 
--   $\sum_{i=1}^3 x_i = x_1 + x_2 + x_3$
--   $\sum_{i=4}^8 x_i = x_4 + x_5 + x_6 + x_7 + x_8$
--   $\sum_{i=2}^{n-1} x_i = x_2 + x_3 + x_4 + ... + x_{n-1}$
+|  Gasto  | Frequência Absoluta |
+|:-------:|:-------------------:|
+| 55 - 59 |          2          |
+| 60 - 64 |          3          |
+| 65 - 69 |          4          |
+| 70 - 74 |          3          |
+| 75 - 79 |          2          |
 
-## O que significa o $n$?
+: Lista 2 - Classe
 
-O $n$ geralmente denota o tamanho do nosso conjutno de dados. Então se tivéssemos o seguinte conjunto de dados:
+<br>Em casos como esse, a média será:
 
--   $Notas: {6, 5, 3, 8 ,7}$
+-   $Média = \frac{\sum_{i=1}^n f_ix_i}{\sum_{i=1}^n f_i}$<br><br>
 
-O tamanho dele é $n = 5$
+-   Em que $f_i = frequência$ e $x_i = valores$
 
-Outro exemplo:
+## Exemplo 2
 
--   $Quantidade\ de\ faltas: {1, 0, 0, 0 , 2, 1, 0, 0, 5}$
+|  Gasto  | Frequência Absoluta | Média Gasto |
+|:-------:|:-------------------:|:-----------:|
+| 55 - 59 |          2          |     57      |
+| 60 - 64 |          3          |     62      |
+| 65 - 69 |          4          |     67      |
+| 70 - 74 |          3          |     72      |
+| 75 - 79 |          2          |     77      |
 
-Tamanho $n = 9$
+: Lista 2 - Classe
 
-## O que significa o $i$?
+<br>
 
-O símbolo $i$ significa apenas o índice de nossa variável.
+-   $Média = \frac{\sum_{i=1}^n f_ix_i}{\sum_{i=1}^n n}$<br><br>
 
--   Variável: um conjunto de valores que variam (ex.: 1, 8, 4, 1, 7, 2)
--   Constante: um conjunto de valores que **não** variam (ex.: 2, 2, 2, 2, 2)
-
-Como assim índice? Quando temos uma variável qualquer de tamanho $n$, usamos o $x_i$ para representar qualquer um dos valores de forma genérica.
-
-$x_i = x_1, x_2, x_3, ..., x_n$
-
-Geralmente, constantes não são indexadas e, portanto, não são representadas com $i$
+-   $Média = \frac{(2 \times 57) + (3 \times 62) + (4 \times 67) + (3 \times 72) + (2 \times 77)}{14} = 67$
 
 ## Mediana
 
@@ -111,3 +115,488 @@ Nesse caso, o valor mais frequente é o 5 (que aparece 8 vezes)
 -   $Quantidade\ de\ faltas: {1, 0, 0, 0 , 2, 1, 0, 0, 5}$
 
 Nesse outro caso, 0 (zero) é o valor mais frequente.
+
+## Variância
+
+A variância é uma medida de dispersão dos dados, ou seja, mensura o quão dispersos são os nossos dados (em relação à média)
+
+Em linguagem **matemática:**
+
+$$
+Var(x) = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1} = \frac{(x_1 - \bar{x})^2 + (x_2 - \bar{x})^2 +\ ...\ + (x_n - \bar{x})^2}{n-1}
+$$
+
+## Exemplo 1
+
+Suponha uma pesquisa que queria verificar no desempenho escolar dos alunos de duas turmas diferentes.
+
+| Notas (turma 1) | Notas (turma 2) |
+|:---------------:|:---------------:|
+|        9        |        8        |
+|       10        |        9        |
+|        5        |        5        |
+|       10        |        8        |
+|        3        |        7        |
+|        7        |        8        |
+|       10        |        7        |
+|       10        |        7        |
+|        2        |        8        |
+|        8        |        7        |
+
+## Exemplo 1
+
+Vamos chamar as notas da turma 1 de $x$ e as notas da turma 2 de $y$. Podemos verificar que:
+
+-   $\bar{x} = \frac{\sum_{i=1}^n x_i}{n} = 7,4$<br><br>
+
+-   $\bar{y} = \frac{\sum_{i=1}^n y_i}{n} = 7,4$
+
+As médias são iguais, porém as variância são diferentes:
+
+-   $Var(x) = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1} = 0,94$<br><br>
+
+-   $Var(y) = \frac{\sum_{i=1}^n (y_i - \bar{y})^2}{n-1} = 9,38$
+
+Ou seja, ao que parece a turma 1 possui um desempenho mais consistente do que a turma 2.
+
+## Exemplo 2
+
+|  Gasto  | Frequência Absoluta | Média Gasto |
+|:-------:|:-------------------:|:-----------:|
+| 55 - 59 |          2          |     57      |
+| 60 - 64 |          3          |     62      |
+| 65 - 69 |          4          |     67      |
+| 70 - 74 |          3          |     72      |
+| 75 - 79 |          2          |     77      |
+
+: Lista 2 - Classe
+
+<br>Em casos como esse, a variância será:
+
+-   $S^2 = \frac{\sum_{i=1}^n f_i(x_i - \bar{x)^2}}{\sum_{i=1}^n f_i - 1}$<br><br>
+
+-   Em que $f_i = frequência$, $x_i = valores$ e $\bar{x} = 67$ (encontramos no slide 6)
+
+## Exemplo 2
+
+|  Gasto  | Frequência Absoluta | Média Gasto |
+|:-------:|:-------------------:|:-----------:|
+| 55 - 59 |          2          |     57      |
+| 60 - 64 |          3          |     62      |
+| 65 - 69 |          4          |     67      |
+| 70 - 74 |          3          |     72      |
+| 75 - 79 |          2          |     77      |
+
+: Lista 2 - Classe
+
+<br><br>
+
+-   $S^2 = \frac{\sum_{i=1}^n f_i(x_i - \bar{x})^2}{\sum_{i=1}^n f_i - 1} = \frac{2(57 - 67)^2 + 3(62 - 67)^2 + 4(67 - 67)^2 + 3(72 - 67)^2 + 2(77 - 67)^2}{14-1} = 42,31$
+
+## Desvio Padrão e Coeficiente de Variação
+
+O desvio padrão é simplesmente a raiz quadrada da variância:
+
+-   $Desvio\ Padrão = s = \sqrt{Var(x)}$
+
+Já o Coefiente de Variação é dado por:
+
+-   $CV = \frac{s}{\bar{x}} \times 100$
+
+Se tivermos o valor do Coeficiente de Variação e da Média, Conseguimos obter o Desvio Padrão:
+
+-   $CV = \frac{s}{\bar{x}} \times 100$<br><br>
+-   $s = \frac{CV \times \bar{x}}{100}$
+
+## Exemplo
+
+Exercício 1 (Lista 1 - Estudo)
+
+| Média   | Desvio Padrão | CV    | Min | Q1   | Mediana | Q3  | Máx |
+|---------|---------------|-------|-----|------|---------|-----|-----|
+| 1330,63 |               | 39,99 |     | 1122 |         |     |     |
+
+Qual o desvio padrão? Se temos a média e o CV, conseguimos obter o desvio padrão:
+
+-   $CV = \frac{s}{\bar{x}} \times 100$<br><br>
+-   $s = \frac{CV \times \bar{x}}{100}$<br><br>
+-   $s = \frac{39,99 \times 1330,63}{100} = 532,12$
+
+## Medidas de Posição
+
+As medidas de posição nos ajudam a interpretar a distribuição dos nossos dados.
+
+```{r}
+library(tidyverse)
+
+df <- titanic::titanic_train
+
+df |> 
+  ggplot(aes(x = Pclass, y = Age, fill = factor(Pclass))) +
+  geom_boxplot() +
+  geom_point(color = "black", size = 0.4, alpha = 0.1) +
+  scale_fill_manual(values = c("royalblue", "lightblue", "gray80")) +
+  theme_bw() +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(size = 11)
+  ) +
+  labs(
+    title = "Distribuição das idades por classe (passageiros do Titanic)",
+    y = "Idade",
+    x = "Classe"
+  )
+```
+
+## Distribuição das Idades
+
+```{r}
+df |> 
+  ggplot(aes(x = Age)) + 
+  geom_point(aes(y = 0, color = Age, alpha = 0.5), size = 3) + 
+  scale_color_gradient(low = "lightblue", high = "royalblue") + 
+  scale_x_continuous(breaks = seq(0,100, by = 5))+
+  theme_classic() +  
+  labs(x = "Idades", y = "") +  
+  theme(
+    axis.text.y = element_blank(),  
+    axis.ticks.y = element_blank(),  
+    axis.title.y = element_blank(),
+    axis.line.y = element_blank(),
+    legend.position = "none"
+  )
+
+```
+
+
+## Mediana
+
+```{r}
+df |>
+  ggplot(aes(x = Age)) +
+  geom_point(aes(y = 0, color = Age, alpha = 0.5), size = 3) +
+  scale_color_gradient(low = "lightblue", high = "royalblue") +
+  scale_x_continuous(breaks = seq(0, 100, by = 5)) +
+  theme_classic() +
+  labs(x = "Idades", y = "") +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank(),
+    axis.line.y = element_blank(),
+    legend.position = "none"
+  ) +
+  geom_vline(
+    xintercept = median(df$Age, na.rm = TRUE),
+    linetype = "dashed", color = "black", size = 1
+  ) +
+  geom_text(
+    aes(
+      x = median(df$Age, na.rm = TRUE), y = 0,
+      label = paste("Mediana: ", round(median(df$Age, na.rm = TRUE), 2))
+    ),
+    color = "black", size = 4, vjust = -1, hjust = -0.1
+  )
+
+```
+
+## Q1 e Q2
+
+```{r}
+df |>
+  ggplot(aes(x = Age)) +
+  geom_point(aes(y = 0, color = Age, alpha = 0.5), size = 3) +
+  scale_color_gradient(low = "lightblue", high = "royalblue") +
+  scale_x_continuous(breaks = seq(0, 100, by = 5)) +
+  theme_classic() +
+  labs(x = "Idades", y = "") +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank(),
+    axis.line.y = element_blank(),
+    legend.position = "none"
+  ) +
+  # Linha para Mediana
+  geom_vline(
+    xintercept = median(df$Age, na.rm = TRUE),
+    linetype = "dashed", color = "black", size = 1
+  ) +
+  # Linha para Q1 (primeiro quartil)
+  geom_vline(
+    xintercept = quantile(df$Age, 0.25, na.rm = TRUE),
+    linetype = "dotted", color = "blue", size = 1
+  ) +
+  # Linha para Q3 (terceiro quartil)
+  geom_vline(
+    xintercept = quantile(df$Age, 0.75, na.rm = TRUE),
+    linetype = "dotted", color = "blue", size = 1
+  ) +
+  # Texto para a mediana
+  geom_text(
+    aes(
+      x = median(df$Age, na.rm = TRUE), y = 0,
+      label = paste("Mediana: ", round(median(df$Age, na.rm = TRUE), 2))
+    ),
+    color = "black", size = 4, vjust = -1, hjust = -0.1
+  ) +
+  # Texto para Q1
+  geom_text(
+    aes(
+      x = quantile(df$Age, 0.25, na.rm = TRUE), y = 0,
+      label = paste("Q1: ", round(quantile(df$Age, 0.25, na.rm = TRUE), 2))
+    ),
+    color = "royalblue", size = 4, vjust = 4, hjust = 1.1
+  ) +
+  # Texto para Q3
+  geom_text(
+    aes(
+      x = quantile(df$Age, 0.75, na.rm = TRUE), y = 0,
+      label = paste("Q3: ", round(quantile(df$Age, 0.75, na.rm = TRUE), 2))
+    ),
+    color = "royalblue", size = 4, vjust = -4, hjust = -0.2
+  )
+
+```
+
+## Decil 90
+
+```{r}
+df |>
+  ggplot(aes(x = Age)) +
+  geom_point(aes(y = 0, color = Age, alpha = 0.5), size = 3) +
+  scale_color_gradient(low = "lightblue", high = "royalblue") +
+  scale_x_continuous(breaks = seq(0, 100, by = 5)) +
+  theme_classic() +
+  labs(x = "Idades", y = "") +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank(),
+    axis.line.y = element_blank(),
+    legend.position = "none"
+  ) +
+  # Linha para Mediana
+  geom_vline(
+    xintercept = median(df$Age, na.rm = TRUE),
+    linetype = "dashed", color = "black", size = 1
+  ) +
+  # Linha para Q1 (primeiro quartil)
+  geom_vline(
+    xintercept = quantile(df$Age, 0.25, na.rm = TRUE),
+    linetype = "dotted", color = "blue", size = 1
+  ) +
+  # Linha para Q3 (terceiro quartil)
+  geom_vline(
+    xintercept = quantile(df$Age, 0.75, na.rm = TRUE),
+    linetype = "dotted", color = "blue", size = 1
+  ) +
+  # Linha para o decil 90
+    geom_vline(xintercept = quantile(df$Age, 0.9, na.rm = TRUE), 
+             linetype = "solid", color = "lightgreen", size = 1)+
+  # Texto para a mediana
+  geom_text(
+    aes(
+      x = median(df$Age, na.rm = TRUE), y = 0,
+      label = paste("Mediana: ", round(median(df$Age, na.rm = TRUE), 2))
+    ),
+    color = "black", size = 4, vjust = -1, hjust = -0.1
+  ) +
+  # Texto para Q1
+  geom_text(
+    aes(
+      x = quantile(df$Age, 0.25, na.rm = TRUE), y = 0,
+      label = paste("Q1: ", round(quantile(df$Age, 0.25, na.rm = TRUE), 2))
+    ),
+    color = "royalblue", size = 4, vjust = 4, hjust = 1.1
+  ) +
+  # Texto para Q3
+  geom_text(
+    aes(
+      x = quantile(df$Age, 0.75, na.rm = TRUE), y = 0,
+      label = paste("Q3: ", round(quantile(df$Age, 0.75, na.rm = TRUE), 2))
+    ),
+    color = "royalblue", size = 4, vjust = -4, hjust = -0.2
+  )+
+    # Texto para decil 90
+  geom_text(
+    aes(
+      x = quantile(df$Age, 0.9, na.rm = TRUE), y = 0,
+      label = paste("Decil 90: ", round(quantile(df$Age, 0.90, na.rm = TRUE), 2))
+    ),
+    color = "lightgreen", size = 4, vjust = -4, hjust = -0.2
+  )
+```
+
+## Percentil 7
+
+```{r}
+df |>
+  ggplot(aes(x = Age)) +
+  geom_point(aes(y = 0, color = Age, alpha = 0.5), size = 3) +
+  scale_color_gradient(low = "lightblue", high = "royalblue") +
+  scale_x_continuous(breaks = seq(0, 100, by = 5)) +
+  theme_classic() +
+  labs(x = "Idades", y = "") +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank(),
+    axis.line.y = element_blank(),
+    legend.position = "none"
+  ) +
+  # Linha para Mediana
+  geom_vline(
+    xintercept = median(df$Age, na.rm = TRUE),
+    linetype = "dashed", color = "black", size = 1
+  ) +
+  # Linha para Q1 (primeiro quartil)
+  geom_vline(
+    xintercept = quantile(df$Age, 0.25, na.rm = TRUE),
+    linetype = "dotted", color = "blue", size = 1
+  ) +
+  # Linha para Q3 (terceiro quartil)
+  geom_vline(
+    xintercept = quantile(df$Age, 0.75, na.rm = TRUE),
+    linetype = "dotted", color = "blue", size = 1
+  ) +
+  # Linha para o decil 90
+    geom_vline(xintercept = quantile(df$Age, 0.9, na.rm = TRUE), 
+             linetype = "solid", color = "lightgreen", size = 1)+
+    # Linha para o percentil 7
+    geom_vline(xintercept = quantile(df$Age, 0.07, na.rm = TRUE), 
+             linetype = "solid", color = "red", size = 1)+
+  # Texto para a mediana
+  geom_text(
+    aes(
+      x = median(df$Age, na.rm = TRUE), y = 0,
+      label = paste("Mediana: ", round(median(df$Age, na.rm = TRUE), 2))
+    ),
+    color = "black", size = 4, vjust = -1, hjust = -0.1
+  ) +
+  # Texto para Q1
+  geom_text(
+    aes(
+      x = quantile(df$Age, 0.25, na.rm = TRUE), y = 0,
+      label = paste("Q1: ", round(quantile(df$Age, 0.25, na.rm = TRUE), 2))
+    ),
+    color = "royalblue", size = 4, vjust = 4, hjust = 1.1
+  ) +
+  # Texto para Q3
+  geom_text(
+    aes(
+      x = quantile(df$Age, 0.75, na.rm = TRUE), y = 0,
+      label = paste("Q3: ", round(quantile(df$Age, 0.75, na.rm = TRUE), 2))
+    ),
+    color = "royalblue", size = 4, vjust = -4, hjust = -0.2
+  )+
+    # Texto para decil 90
+  geom_text(
+    aes(
+      x = quantile(df$Age, 0.9, na.rm = TRUE), y = 0,
+      label = paste("Decil 90: ", round(quantile(df$Age, 0.90, na.rm = TRUE), 2))
+    ),
+    color = "lightgreen", size = 4, vjust = -4, hjust = -0.2
+  )+
+    # Texto para percentil 7
+  geom_text(
+    aes(
+      x = quantile(df$Age, 0.07, na.rm = TRUE), y = 0,
+      label = paste("Percentil 7: ", round(quantile(df$Age, 0.07, na.rm = TRUE), 2))
+    ),
+    color = "red", size = 4, vjust = -4, hjust = -0.1
+  )
+
+```
+
+## Percentil 93
+
+```{r}
+df |>
+  ggplot(aes(x = Age)) +
+  geom_point(aes(y = 0, color = Age, alpha = 0.5), size = 3) +
+  scale_color_gradient(low = "lightblue", high = "royalblue") +
+  scale_x_continuous(breaks = seq(0, 100, by = 5)) +
+  theme_classic() +
+  labs(x = "Idades", y = "") +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank(),
+    axis.line.y = element_blank(),
+    legend.position = "none"
+  ) +
+  # Linha para Mediana
+  geom_vline(
+    xintercept = median(df$Age, na.rm = TRUE),
+    linetype = "dashed", color = "black", size = 1
+  ) +
+  # Linha para Q1 (primeiro quartil)
+  geom_vline(
+    xintercept = quantile(df$Age, 0.25, na.rm = TRUE),
+    linetype = "dotted", color = "blue", size = 1
+  ) +
+  # Linha para Q3 (terceiro quartil)
+  geom_vline(
+    xintercept = quantile(df$Age, 0.75, na.rm = TRUE),
+    linetype = "dotted", color = "blue", size = 1
+  ) +
+  # Linha para o decil 90
+    geom_vline(xintercept = quantile(df$Age, 0.9, na.rm = TRUE), 
+             linetype = "solid", color = "lightgreen", size = 1)+
+    # Linha para o percentil 7
+    geom_vline(xintercept = quantile(df$Age, 0.07, na.rm = TRUE), 
+             linetype = "solid", color = "red", size = 1)+
+      # Linha para o percentil 97
+    geom_vline(xintercept = quantile(df$Age, 0.97, na.rm = TRUE), 
+             linetype = "solid", color = "red", size = 1)+
+  # Texto para a mediana
+  geom_text(
+    aes(
+      x = median(df$Age, na.rm = TRUE), y = 0,
+      label = paste("Mediana: ", round(median(df$Age, na.rm = TRUE), 2))
+    ),
+    color = "black", size = 4, vjust = -1, hjust = -0.1
+  ) +
+  # Texto para Q1
+  geom_text(
+    aes(
+      x = quantile(df$Age, 0.25, na.rm = TRUE), y = 0,
+      label = paste("Q1: ", round(quantile(df$Age, 0.25, na.rm = TRUE), 2))
+    ),
+    color = "royalblue", size = 4, vjust = 4, hjust = 1.1
+  ) +
+  # Texto para Q3
+  geom_text(
+    aes(
+      x = quantile(df$Age, 0.75, na.rm = TRUE), y = 0,
+      label = paste("Q3: ", round(quantile(df$Age, 0.75, na.rm = TRUE), 2))
+    ),
+    color = "royalblue", size = 4, vjust = -4, hjust = -0.2
+  )+
+    # Texto para decil 90
+  geom_text(
+    aes(
+      x = quantile(df$Age, 0.9, na.rm = TRUE), y = 0,
+      label = paste("Decil 90: ", round(quantile(df$Age, 0.90, na.rm = TRUE), 2))
+    ),
+    color = "lightgreen", size = 4, vjust = -4, hjust = -0.2
+  )+
+    # Texto para percentil 7
+  geom_text(
+    aes(
+      x = quantile(df$Age, 0.07, na.rm = TRUE), y = 0,
+      label = paste("Percentil 7: ", round(quantile(df$Age, 0.07, na.rm = TRUE), 2))
+    ),
+    color = "red", size = 4, vjust = -4, hjust = -0.1
+  )+
+    # Texto para percentil 97
+  geom_text(
+    aes(
+      x = quantile(df$Age, 0.97, na.rm = TRUE), y = 0,
+      label = paste("Percentil 97: ", round(quantile(df$Age, 0.97, na.rm = TRUE), 2))
+    ),
+    color = "red", size = 4, vjust = -2, hjust = -0.1
+  )
+
+```
