@@ -276,6 +276,7 @@ dados_filtrados |>
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F)
 ```
 
+Então, reafirmando: **o Coeficiente de Variação é a medida mais indicada para comparar a dispersão de variáveis diferentes.**
 
 ## Medidas de Posição
 
