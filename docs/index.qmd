@@ -26,6 +26,220 @@ Conjunto de medidas que descrevem dados:
 
 -   Medidas de posição (quartis, quintis, decis, percentis etc.)
 
+## Tipo de Variáveis
+
+Antes de tudo, variável é algo que pode assumir diferentes valores.
+
+-   Variável: ${4,2,6,4,10,9,7,3,7}$
+
+-   Constante: $2,2,2,2,2,2,2,2,2$
+
+## Tipo de Variáveis
+
+Antes de tudo, variável é algo que pode assumir diferentes valores.
+
+-   Variável: ${4,2,6,4,10,9,7,3,7}$
+
+-   Constante: $2,2,2,2,2,2,2,2,2$
+
+As variáveis podem ser
+
+-   Qualitativas
+
+    -   Nominais (estado civil, raça, gênero, religião etc.)
+
+    -   Ordinais (escolaridade, nível de satisfação, classe social etc.)
+
+-   Quantitativas
+
+    -   Discretas (assume valores inteiros, por ex., nº de filhos, nº de carros, nº de vezes que um indivíduo mudou de residência, nº de partidos etc.)
+
+    -   Contínuas (renda mensal, tempo de deslocamento até o trabalho, taxa de criminalidade etc.)
+
+## Exemplo: IDH-M e GINI
+
+```{r}
+library(tidyverse)
+library(abjData)
+library(knitr)
+library(kableExtra)
+
+df <- abjData::pnud_muni |> 
+  filter(ano == 2010) |> 
+  mutate(codmun7 = as.character(codmun7)) |> 
+  left_join(
+    abjData::muni,
+    by = c("codmun7" = "muni_id")
+  ) |> 
+  select(
+    ano, 
+    regiao_nm,
+    uf_sigla,
+    municipio, 
+    capital,
+    # espvida, 
+    # e_anosestudo, 
+    # ppob,
+    # rdpc,
+    idhm,
+    gini
+    )
+
+df |> slice_sample(n=8) |> 
+  kable(
+    "html", 
+    # caption = "Tabela de Filmes de Wes Anderson"
+    ) |> 
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"), 
+    full_width = F
+    )
+```
+
+**Total de linhas:** 5.565
+
+**Fonte:** ABJ \| PNUD
+
+## Exemplo: IDH-M e GINI
+
+```{r}
+df |>
+  ggplot() +
+  aes(x = idhm) +
+  geom_histogram(
+    # aes(y = ..density..),
+    color = "white",
+    fill = "royalblue",
+    # bins = 3,
+  ) +
+  theme_bw() +
+  labs(
+    title = "Histograma da Distribuição do IDH-M (2010)",
+    y = "Frequência",
+    x = "IDH-M"
+  ) +
+  scale_x_continuous(breaks = seq(0, 1, by = 0.05))
+```
+
+## Exemplo: IDH-M e GINI
+
+```{r}
+sp <- df |> 
+  filter(municipio == "SÃO PAULO") |> 
+  pull(idhm)
+
+# media <- df |> 
+#   summarise(media = mean(idhm)) |> 
+#   pull(media)
+
+df |>
+  ggplot() +
+  aes(x = idhm) +
+  geom_histogram(
+    # aes(y = ..density..),
+    color = "white",
+    fill = "royalblue",
+    # bins = 3,
+  ) +
+  theme_bw() +
+  labs(
+    title = "Histograma da Distribuição do IDH-M (2010)",
+    y = "Frequência",
+    x = "IDH-M"
+  ) +
+  scale_x_continuous(breaks = seq(0, 1, by = 0.05)) +
+  geom_vline(
+    xintercept = sp,
+    # linetype = "dotted",
+    color = "black",
+    size = 1
+  ) +
+  # geom_vline(
+  #   xintercept = media,
+  #   # linetype = "dotted",
+  #   color = "red",
+  #   size = 1
+  # ) +
+  geom_text(
+    aes(
+      x = sp, y = 400,
+      label = paste("São Paulo: ", sp)
+    ),
+    color = "black", size = 4, 
+    #vjust = -13,
+    hjust = 1.1
+  ) 
+  #   geom_text(
+  #   aes(
+  #     x = media, y = 400,
+  #     label = paste("Média: ", round(media, 2))
+  #   ),
+  #   color = "red", size = 4, 
+  #   #vjust = -20,
+  #   hjust = 1.1
+  # )
+```
+
+
+## Exemplo: IDH-M e GINI
+
+```{r}
+sp <- df |> 
+  filter(municipio == "SÃO PAULO") |> 
+  pull(idhm)
+
+media <- df |>
+  summarise(media = mean(idhm)) |>
+  pull(media)
+
+df |>
+  ggplot() +
+  aes(x = idhm) +
+  geom_histogram(
+    # aes(y = ..density..),
+    color = "white",
+    fill = "royalblue",
+    # bins = 3,
+  ) +
+  theme_bw() +
+  labs(
+    title = "Histograma da Distribuição do IDH-M (2010)",
+    y = "Frequência",
+    x = "IDH-M"
+  ) +
+  scale_x_continuous(breaks = seq(0, 1, by = 0.05)) +
+  geom_vline(
+    xintercept = sp,
+    # linetype = "dotted",
+    color = "black",
+    size = 1
+  ) +
+  geom_vline(
+    xintercept = media,
+    # linetype = "dotted",
+    color = "red",
+    size = 1
+  ) +
+  geom_text(
+    aes(
+      x = sp, y = 400,
+      label = paste("São Paulo: ", sp)
+    ),
+    color = "black", size = 4, 
+    #vjust = -13,
+    hjust = 1.1
+  ) 
+    geom_text(
+    aes(
+      x = media, y = 400,
+      label = paste("Média: ", round(media, 2))
+    ),
+    color = "red", size = 4,
+    #vjust = -20,
+    hjust = 1.1
+  )
+```
+
 ## Média
 
 A média consiste em somar todos os valores que temos e dividí-los pela quantidade total de valores.
@@ -104,6 +318,25 @@ A mediana é o valor que está exatamente no meio do nosso conjunto de dados (ap
 
 O nosso conjunto de dados (notas) tem 5 valores, portanto o valor que está no meio é aquele que está na terceira posição (no caso, o valor 6).
 
+Nesse nosso exemplo, podemos interpretar a mediana da seguinte maneira: metade das notas foi maior que 6 (ou, metade das notas foi menor que 6)
+
+## Exemplo (amostra de 11 cidades)
+
+```{r}
+df |> slice_sample(n=11) |> 
+  select(municipio, gini) |> 
+  arrange(gini) |> 
+  mutate(posicao = 1:n(), .before = 1) |> 
+  kable(
+    "html", 
+    # caption = "Tabela de Filmes de Wes Anderson"
+    ) |> 
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"), 
+    full_width = F
+    )
+```
+
 ## Moda
 
 A moda é simplesmente o valor mais frequente.
@@ -153,11 +386,11 @@ Vamos chamar as notas da turma 1 de $x$ e as notas da turma 2 de $y$. Podemos ve
 
 As médias são iguais, porém as variância são diferentes:
 
--   $Var(x) = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1} = 0,94$<br><br>
+-   $Var(x) = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1} = 9,38$<br><br>
 
--   $Var(y) = \frac{\sum_{i=1}^n (y_i - \bar{y})^2}{n-1} = 9,38$
+-   $Var(y) = \frac{\sum_{i=1}^n (y_i - \bar{y})^2}{n-1} = 0,94$
 
-Ou seja, ao que parece a turma 1 possui um desempenho mais consistente do que a turma 2.
+Ou seja, ao que parece a turma 2 possui um desempenho mais consistente do que a turma 1.
 
 ## Exemplo 2
 
@@ -175,7 +408,7 @@ Ou seja, ao que parece a turma 1 possui um desempenho mais consistente do que a 
 
 -   $S^2 = \frac{\sum_{i=1}^n f_i(x_i - \bar{x)^2}}{\sum_{i=1}^n f_i - 1}$<br><br>
 
--   Em que $f_i = frequência$, $x_i = valores$ e $\bar{x} = 67$ (encontramos no slide 6)
+-   Em que $f_i = frequência$, $x_i = valores$ e $\bar{x} = 67$ (encontramos no slide 10)
 
 ## Exemplo 2
 
@@ -193,6 +426,53 @@ Ou seja, ao que parece a turma 1 possui um desempenho mais consistente do que a 
 
 -   $S^2 = \frac{\sum_{i=1}^n f_i(x_i - \bar{x})^2}{\sum_{i=1}^n f_i - 1} = \frac{2(57 - 67)^2 + 3(62 - 67)^2 + 4(67 - 67)^2 + 3(72 - 67)^2 + 2(77 - 67)^2}{14-1} = 42,31$
 
+## Exemplo 3 (IDH-M Médio e Variância por Região)
+
+```{r}
+df |> 
+  group_by(regiao_nm) |> 
+  summarise(
+    Média = mean(idhm),
+    Variância = var(idhm)
+  ) |> 
+  rename(Região = regiao_nm) |> 
+  arrange(Variância) |> 
+    kable(
+    "html", 
+    # caption = "Tabela de Filmes de Wes Anderson"
+    ) |> 
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"), 
+    full_width = F
+    )
+```
+
+## Exemplo 3 (IDH-M Médio e Variância por Região)
+
+```{r}
+df |> 
+  group_by(regiao_nm) |> 
+  summarise(
+    Média = mean(idhm),
+    Variância = var(idhm)
+  ) |> 
+  rename(Região = regiao_nm) |> 
+  arrange(Variância) |> 
+    kable(
+    "html", 
+    # caption = "Tabela de Filmes de Wes Anderson"
+    ) |> 
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"), 
+    full_width = F
+    )
+```
+
+-   A região Sul possui o maior IDH-M médio
+-   A região Nordeste possui o menor IDH-M médio
+-   A região Centro Oeste é a região mais homogênea
+-   A região Norte é a mais heterogênea
+
 ## Desvio Padrão e Coeficiente de Variação
 
 O desvio padrão é simplesmente a raiz quadrada da variância:
@@ -207,6 +487,7 @@ Se tivermos o valor do Coeficiente de Variação e da Média, conseguimos obter 
 
 -   $CV = \frac{s}{\bar{x}} \times 100$<br><br>
 -   $s = \frac{CV \times \bar{x}}{100}$
+
 
 ## Exemplo
 
@@ -264,7 +545,47 @@ dados_filtrados |>
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F)
 ```
 
-Se olharmos agora para o Coeficiente de Variação, 
+## Importante!
+
+Se compararmos o desvio padrão, a diferença parece absurda. Mas claramente isso seria o esperado, uma vez que os valores de receita são mais altos (podem variar de 0 até o infinito) e os valores de nota são mais baixos (variam entre 0 e 10)
+
+```{r}
+dados_filtrados |> 
+  summarise(
+    `Desvio Padrão da Receita` = sd(Receita),
+    `Desvio Padrão da Nota` = sd(`Nota (IMDb)`)
+    ) |> 
+  kable("html") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F)
+```
+
+Se olharmos agora para o Coeficiente de Variação,
+
+```{r}
+dados_filtrados |> 
+  summarise(
+    `CV da Receita` = (sd(Receita) / mean(Receita)) * 100,
+    `CV Nota` = (sd(`Nota (IMDb)`) / mean(`Nota (IMDb)`)) * 100
+    ) |> 
+  kable("html") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F)
+```
+
+## Importante!
+
+Se compararmos o desvio padrão, a diferença parece absurda. Mas claramente isso seria o esperado, uma vez que os valores de receita são mais altos (podem variar de 0 até o infinito) e os valores de nota são mais baixos (variam entre 0 e 10)
+
+```{r}
+dados_filtrados |> 
+  summarise(
+    `Desvio Padrão da Receita` = sd(Receita),
+    `Desvio Padrão da Nota` = sd(`Nota (IMDb)`)
+    ) |> 
+  kable("html") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = F)
+```
+
+Se olharmos agora para o Coeficiente de Variação,
 
 ```{r}
 dados_filtrados |> 
@@ -278,39 +599,50 @@ dados_filtrados |>
 
 Então, reafirmando: **o Coeficiente de Variação é a medida mais indicada para comparar a dispersão de variáveis diferentes.**
 
+## Bônus!
+
+Ao analisar a mesma variável, podemos calcular a variância, o desvio padrão e o coeficiente de variação juntos, e a interpretação será a mesma!
+
+```{r}
+df |> 
+  group_by(regiao_nm) |> 
+  summarise(
+    Média = mean(idhm),
+    Variância = var(idhm),
+    `Desvio Padrão` = sd(idhm),
+    CV = `Desvio Padrão` / Média * 100
+  ) |> 
+  rename(Região = regiao_nm) |> 
+  arrange(Variância) |> 
+    kable(
+    "html", 
+    caption = "IDH-M (2010)"
+    ) |> 
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"), 
+    full_width = F
+    )
+```
+
+Embora a variância, desvio padrão e CV apresentem valores diferentes, a interpretação sobre a dispersão dos dados é a mesma.
+
 ## Medidas de Posição
 
 As medidas de posição nos ajudam a interpretar a distribuição dos nossos dados.
 
-```{r}
-library(tidyverse)
+## Medidas de Posição
 
+As medidas de posição nos ajudam a interpretar a distribuição dos nossos dados.
+
+O gráfico mostra a distribuição das idades dos tripulantes do Titanic.
+
+```{r}
 df <- titanic::titanic_train
 
 df |> 
-  ggplot(aes(x = Pclass, y = Age, fill = factor(Pclass))) +
-  geom_boxplot() +
-  geom_point(color = "black", size = 0.4, alpha = 0.1) +
-  scale_fill_manual(values = c("royalblue", "lightblue", "gray80")) +
-  theme_bw() +
-  theme(
-    legend.position = "none",
-    plot.title = element_text(size = 11)
-  ) +
-  labs(
-    title = "Distribuição das idades por classe (passageiros do Titanic)",
-    y = "Idade",
-    x = "Classe"
-  )
-```
-
-## Distribuição das Idades
-
-```{r}
-df |> 
   ggplot(aes(x = Age)) + 
   geom_point(aes(y = 0, color = Age, alpha = 0.5), size = 3) + 
-  scale_color_gradient(low = "lightblue", high = "royalblue") + 
+  scale_color_gradient(low = "lightblue", high = "lightblue") + 
   scale_x_continuous(breaks = seq(0,100, by = 5))+
   theme_classic() +  
   labs(x = "Idades", y = "") +  
@@ -324,14 +656,17 @@ df |>
 
 ```
 
+Cada ponto representa uma pessoa.
 
-## Mediana
+## Mediana (Q2)
+
+Cinquenta por cento dos tripulantes tinham 28 anos ou menos. Do mesmo modo, metade tinha 28 anos ou mais
 
 ```{r}
 df |>
   ggplot(aes(x = Age)) +
   geom_point(aes(y = 0, color = Age, alpha = 0.5), size = 3) +
-  scale_color_gradient(low = "lightblue", high = "royalblue") +
+  scale_color_gradient(low = "lightblue", high = "lightblue") +
   scale_x_continuous(breaks = seq(0, 100, by = 5)) +
   theme_classic() +
   labs(x = "Idades", y = "") +
@@ -356,13 +691,16 @@ df |>
 
 ```
 
-## Q1 e Q2
+## Q1 e Q3
+
+Q1: 25% dos tripulantes tinham até 20 anos (75% tinha mais de 20 anos)  
+Q3: 75% dos tripulantes tinham até 38 anos (25% tinha mais de 38 anos)
 
 ```{r}
 df |>
   ggplot(aes(x = Age)) +
   geom_point(aes(y = 0, color = Age, alpha = 0.5), size = 3) +
-  scale_color_gradient(low = "lightblue", high = "royalblue") +
+  scale_color_gradient(low = "lightblue", high = "lightblue") +
   scale_x_continuous(breaks = seq(0, 100, by = 5)) +
   theme_classic() +
   labs(x = "Idades", y = "") +
@@ -400,7 +738,7 @@ df |>
   geom_text(
     aes(
       x = quantile(df$Age, 0.25, na.rm = TRUE), y = 0,
-      label = paste("Q1: ", round(quantile(df$Age, 0.25, na.rm = TRUE), 2))
+      label = paste("Q1: ", round(quantile(df$Age, 0.25, na.rm = TRUE), 0))
     ),
     color = "royalblue", size = 4, vjust = 4, hjust = 1.1
   ) +
@@ -417,11 +755,13 @@ df |>
 
 ## Decil 90
 
+10% dos tripulantes tinham mais de 50 anos (90% tinha menos de 50 anos)
+
 ```{r}
 df |>
   ggplot(aes(x = Age)) +
   geom_point(aes(y = 0, color = Age, alpha = 0.5), size = 3) +
-  scale_color_gradient(low = "lightblue", high = "royalblue") +
+  scale_color_gradient(low = "lightblue", high = "lightblue") +
   scale_x_continuous(breaks = seq(0, 100, by = 5)) +
   theme_classic() +
   labs(x = "Idades", y = "") +
@@ -462,7 +802,7 @@ df |>
   geom_text(
     aes(
       x = quantile(df$Age, 0.25, na.rm = TRUE), y = 0,
-      label = paste("Q1: ", round(quantile(df$Age, 0.25, na.rm = TRUE), 2))
+      label = paste("Q1: ", round(quantile(df$Age, 0.25, na.rm = TRUE), 0))
     ),
     color = "royalblue", size = 4, vjust = 4, hjust = 1.1
   ) +
@@ -486,11 +826,13 @@ df |>
 
 ## Percentil 7
 
+7% dos tripulantes tinham menos de 8 anos (93% tinha mais de 8 anos)
+
 ```{r}
 df |>
   ggplot(aes(x = Age)) +
   geom_point(aes(y = 0, color = Age, alpha = 0.5), size = 3) +
-  scale_color_gradient(low = "lightblue", high = "royalblue") +
+  scale_color_gradient(low = "lightblue", high = "lightblue") +
   scale_x_continuous(breaks = seq(0, 100, by = 5)) +
   theme_classic() +
   labs(x = "Idades", y = "") +
@@ -534,7 +876,7 @@ df |>
   geom_text(
     aes(
       x = quantile(df$Age, 0.25, na.rm = TRUE), y = 0,
-      label = paste("Q1: ", round(quantile(df$Age, 0.25, na.rm = TRUE), 2))
+      label = paste("Q1: ", round(quantile(df$Age, 0.25, na.rm = TRUE), 0))
     ),
     color = "royalblue", size = 4, vjust = 4, hjust = 1.1
   ) +
@@ -558,20 +900,22 @@ df |>
   geom_text(
     aes(
       x = quantile(df$Age, 0.07, na.rm = TRUE), y = 0,
-      label = paste("Percentil 7: ", round(quantile(df$Age, 0.07, na.rm = TRUE), 2))
+      label = paste("Percentil 7: ", round(quantile(df$Age, 0.07, na.rm = TRUE), 0))
     ),
     color = "red", size = 4, vjust = -4, hjust = -0.1
   )
 
 ```
 
-## Percentil 93
+## Percentil 97
+
+3% dos tripulantes tinham mais de 61 anos (97% tinha menos de 61 anos).
 
 ```{r}
 df |>
   ggplot(aes(x = Age)) +
   geom_point(aes(y = 0, color = Age, alpha = 0.5), size = 3) +
-  scale_color_gradient(low = "lightblue", high = "royalblue") +
+  scale_color_gradient(low = "lightblue", high = "lightblue") +
   scale_x_continuous(breaks = seq(0, 100, by = 5)) +
   theme_classic() +
   labs(x = "Idades", y = "") +
@@ -618,7 +962,7 @@ df |>
   geom_text(
     aes(
       x = quantile(df$Age, 0.25, na.rm = TRUE), y = 0,
-      label = paste("Q1: ", round(quantile(df$Age, 0.25, na.rm = TRUE), 2))
+      label = paste("Q1: ", round(quantile(df$Age, 0.25, na.rm = TRUE), 0))
     ),
     color = "royalblue", size = 4, vjust = 4, hjust = 1.1
   ) +
@@ -642,7 +986,7 @@ df |>
   geom_text(
     aes(
       x = quantile(df$Age, 0.07, na.rm = TRUE), y = 0,
-      label = paste("Percentil 7: ", round(quantile(df$Age, 0.07, na.rm = TRUE), 2))
+      label = paste("Percentil 7: ", round(quantile(df$Age, 0.07, na.rm = TRUE), 0))
     ),
     color = "red", size = 4, vjust = -4, hjust = -0.1
   )+
@@ -650,9 +994,11 @@ df |>
   geom_text(
     aes(
       x = quantile(df$Age, 0.97, na.rm = TRUE), y = 0,
-      label = paste("Percentil 97: ", round(quantile(df$Age, 0.97, na.rm = TRUE), 2))
+      label = paste("Percentil 97: ", round(quantile(df$Age, 0.97, na.rm = TRUE), 0))
     ),
     color = "red", size = 4, vjust = -2, hjust = -0.1
   )
 
 ```
+
+
