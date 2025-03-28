@@ -180,7 +180,6 @@ df |>
   # )
 ```
 
-
 ## Exemplo: IDH-M e GINI
 
 ```{r}
@@ -404,9 +403,9 @@ Ou seja, ao que parece a turma 2 possui um desempenho mais consistente do que a 
 
 : Lista 2 - Classe
 
-<br>Em casos como esse, a variância será:
+Em casos como esse, a variância será:
 
--   $S^2 = \frac{\sum_{i=1}^n f_i(x_i - \bar{x)^2}}{\sum_{i=1}^n f_i - 1}$<br><br>
+-   $S^2 = \frac{\sum_{i=1}^n f_i(x_i - \bar{x)^2}}{\sum_{i=1}^n f_i - 1}$
 
 -   Em que $f_i = frequência$, $x_i = valores$ e $\bar{x} = 67$ (encontramos no slide 10)
 
@@ -487,7 +486,6 @@ Se tivermos o valor do Coeficiente de Variação e da Média, conseguimos obter 
 
 -   $CV = \frac{s}{\bar{x}} \times 100$<br><br>
 -   $s = \frac{CV \times \bar{x}}{100}$
-
 
 ## Exemplo
 
@@ -693,7 +691,7 @@ df |>
 
 ## Q1 e Q3
 
-Q1: 25% dos tripulantes tinham até 20 anos (75% tinha mais de 20 anos)  
+Q1: 25% dos tripulantes tinham até 20 anos (75% tinha mais de 20 anos)\
 Q3: 75% dos tripulantes tinham até 38 anos (25% tinha mais de 38 anos)
 
 ```{r}
@@ -1000,5 +998,3 @@ df |>
   )
 
 ```
-
-
