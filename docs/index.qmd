@@ -750,7 +750,7 @@ df |>
 ## Decil 90
 
 10% dos tripulantes tinham mais de 50 anos (90% tinha menos de 50 anos)
-<br>
+<br><br>
 
 ```{r}
 df |>
@@ -822,7 +822,7 @@ df |>
 ## Percentil 7
 
 7% dos tripulantes tinham menos de 8 anos (93% tinha mais de 8 anos)
-<br>
+<br><br>
 
 ```{r}
 df |>
@@ -906,7 +906,7 @@ df |>
 ## Percentil 97
 
 3% dos tripulantes tinham mais de 61 anos (97% tinha menos de 61 anos).
-<br>
+<br><br>
 
 ```{r}
 df |>
