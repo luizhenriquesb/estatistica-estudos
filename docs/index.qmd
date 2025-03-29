@@ -100,7 +100,7 @@ df |> slice_sample(n=8) |>
 
 **Fonte:** ABJ \| PNUD
 
-## Exemplo: IDH-M e GINI
+## Exemplo: Distribuição do IDH-M
 
 ```{r}
 df |>
@@ -121,7 +121,7 @@ df |>
   scale_x_continuous(breaks = seq(0, 1, by = 0.05))
 ```
 
-## Exemplo: IDH-M e GINI
+## Exemplo: Distribuição do IDH-M
 
 ```{r}
 sp <- df |> 
@@ -180,7 +180,7 @@ df |>
   # )
 ```
 
-## Exemplo: IDH-M e GINI
+## Exemplo: Distribuição do IDH-M
 
 ```{r}
 sp <- df |> 
@@ -227,7 +227,7 @@ df |>
     color = "black", size = 4, 
     #vjust = -13,
     hjust = 1.1
-  ) 
+  ) +
     geom_text(
     aes(
       x = media, y = 400,
@@ -405,7 +405,7 @@ Ou seja, ao que parece a turma 2 possui um desempenho mais consistente do que a 
 
 Em casos como esse, a variância será:
 
--   $S^2 = \frac{\sum_{i=1}^n f_i(x_i - \bar{x)^2}}{\sum_{i=1}^n f_i - 1}$
+-   $S^2 = \frac{\sum_{i=1}^n f_i(x_i - \bar{x})^2}{\sum_{i=1}^n f_i - 1}$
 
 -   Em que $f_i = frequência$, $x_i = valores$ e $\bar{x} = 67$ (encontramos no slide 10)
 
@@ -630,9 +630,7 @@ As medidas de posição nos ajudam a interpretar a distribuição dos nossos dad
 
 ## Medidas de Posição
 
-As medidas de posição nos ajudam a interpretar a distribuição dos nossos dados.
-
-O gráfico mostra a distribuição das idades dos tripulantes do Titanic.
+As medidas de posição nos ajudam a interpretar a distribuição dos nossos dados. O gráfico mostra a distribuição das idades dos tripulantes do Titanic.
 
 ```{r}
 df <- titanic::titanic_train
@@ -653,8 +651,6 @@ df |>
   )
 
 ```
-
-Cada ponto representa uma pessoa.
 
 ## Mediana (Q2)
 
@@ -754,6 +750,7 @@ df |>
 ## Decil 90
 
 10% dos tripulantes tinham mais de 50 anos (90% tinha menos de 50 anos)
+<br>
 
 ```{r}
 df |>
@@ -825,6 +822,7 @@ df |>
 ## Percentil 7
 
 7% dos tripulantes tinham menos de 8 anos (93% tinha mais de 8 anos)
+<br>
 
 ```{r}
 df |>
@@ -908,6 +906,7 @@ df |>
 ## Percentil 97
 
 3% dos tripulantes tinham mais de 61 anos (97% tinha menos de 61 anos).
+<br>
 
 ```{r}
 df |>
